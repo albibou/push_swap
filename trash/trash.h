@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:45:08 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/10 18:02:28 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/16 16:59:49 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,16 @@
 typedef struct	s_data
 {
 	char **args;
+	int	a_size;
+	int	b_size;	
 	t_list	*stack_a;
 	t_list	*stack_b;
 } t_data;
 
-int	sa(t_data *data);
-int	sb(t_data *data);
-int	ss(t_data *data);
+int	sa(t_list *stack_a);
+int	sb(t_list *stack_b);
+int	ss(t_list *stack_a, t_list *stack_b);
+void	ra(t_list **stack_a);
+void	rra(t_list **stack_a);
 
 #endif

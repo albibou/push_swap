@@ -17,8 +17,13 @@ NAME	= trash
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME} :	${OBJS}
+		clear
+		@toilet -f pagga.tlf --gay "Libft"
 		make all -C libft
+		clear
 		${CC} -o ${NAME} -g ${CFLAGS} ${OBJS} ${LIBFT}
+		clear
+		@toilet -f pagga.tlf --gay "Enjoy ${NAME} !"
 	
 all :		${NAME}
 
