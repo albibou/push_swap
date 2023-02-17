@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:42:50 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/16 18:54:03 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/17 15:04:46 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	free_list(t_list *stack)
 	free(stack);
 }
 
-void	print_list_a(t_list *stack_a)
+void	print_list(t_list *stack)
 {
 	t_list	*tmp;
 
-	tmp = stack_a;
+	tmp = stack;
 	while (tmp->next != NULL)
 	{
 		ft_printf("%d\n", tmp->content);
@@ -69,29 +69,101 @@ int	main(int ac, char **av)
 		ft_printf("Struct alloc error\n");
 		exit(1);
 	}
-	if (ac != 2)
+	if (ac != 3)
 	{
-		ft_printf("Use as ./trash '0 1 2 3'\n");
+		ft_printf("Use as ./trash '0 1 2 3' '3 2 1'\n");
 		free(data);
 		exit(1);
 	}
+
 	data->args = ft_split(av[1], ' ');
+	data->bargs = ft_split(av[2], ' ');
 	data->stack_a = init_list(data->stack_a, data->args);
+	data->stack_b = init_list(data->stack_b, data->bargs);
 	data->a_size = ft_lstsize(data->stack_a);
-	print_list_a(data->stack_a);
+	data->b_size = ft_lstsize(data->stack_b);
+
+	ft_printf("A : \n");
+	print_list(data->stack_a);
 	ft_printf("\n");
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
 	sa(data->stack_a);
-	print_list_a(data->stack_a);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
 	ft_printf("\n");
+
+	sb(data->stack_b);
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
+	ss(data->stack_a, data->stack_b);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
+	ft_printf("\n");
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
 	ra(&data->stack_a);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
 	ft_printf("\n");
-	print_list_a(data->stack_a);
+
+	rb(&data->stack_b);
+	ft_printf("B : \n");
+	print_list(data->stack_b);
 	ft_printf("\n");
+
+	rr(&data->stack_a, &data->stack_b);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
+	ft_printf("\n");
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
 	rra(&data->stack_a);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
 	ft_printf("\n");
-	print_list_a(data->stack_a);
+
+	rrb(&data->stack_b);
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
+	rrr(&data->stack_a, &data->stack_b);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
+	ft_printf("\n");
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
+	pa(&data->stack_a, &data->stack_b);
+	ft_printf("A : \n");
+	print_list(data->stack_a);
+	ft_printf("\n");
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+
+	pb(&data->stack_a, &data->stack_b);
+	ft_printf("B : \n");
+	print_list(data->stack_b);
+	ft_printf("\n");
+	ft_printf("A : \n");
+	print_list(data->stack_a);
+	ft_printf("\n");
+
 	ft_freetab(data->args);
+	ft_freetab(data->bargs);
 	free_list(data->stack_a);
+	free_list(data->stack_b);
 	free(data);
 	return(0);
 }
