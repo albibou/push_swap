@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:42:50 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/17 15:04:46 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/17 16:02:46 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ void	free_list(t_list *stack)
 		free(tmp);
 	}
 	free(stack);
+}
+
+void	free_data(t_data *data)
+{
+	ft_freetab(data->args);
+	ft_freetab(data->bargs);
+	free_list(data->stack_a);
+	free_list(data->stack_b);
+	free(data);
 }
 
 void	print_list(t_list *stack)
@@ -160,10 +169,6 @@ int	main(int ac, char **av)
 	print_list(data->stack_a);
 	ft_printf("\n");
 
-	ft_freetab(data->args);
-	ft_freetab(data->bargs);
-	free_list(data->stack_a);
-	free_list(data->stack_b);
-	free(data);
+	free_data(data);
 	return(0);
 }
