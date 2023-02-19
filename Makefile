@@ -1,4 +1,6 @@
 SRCS	= ./src/main.c \
+	  ./src/parse.c \
+	  ./src/free.c \
 
 OBJS	= ${SRCS:.c=.o}
 
