@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:05:09 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/17 14:02:14 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:58:25 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,34 @@ void	sb(t_list *stack_b)
 	ft_printf("sb\n");
 }
 
+/*                                     Work In Progress
+void	sa(t_list *stack_a)
+{
+	t_list	*tmp;
+	int	rep;
+
+	tmp = stack_a;
+	if(!tmp || tmp->next == NULL)
+		return;
+	stack_a = stack_a->next;
+	tmp->next
+	ft_printf("sa\n");
+}
+
+void	sb(t_list *stack_b)
+{
+	t_list	*tmp;
+	int	rep;
+
+	tmp = stack_b;
+	rep = stack_b->content;
+	if (!tmp || tmp->next == NULL)
+		return;
+	tmp->content = tmp->next->content;
+	tmp->next->content = rep;
+	ft_printf("sb\n");
+}
+*/
 void	ss(t_list *stack_a, t_list *stack_b)
 {
 	sa(stack_a);

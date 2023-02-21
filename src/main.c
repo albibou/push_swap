@@ -6,14 +6,32 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:31:01 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/19 16:41:25 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:45:47 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//penser a delete cette fonction
+void	print_list(t_list *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack;
+	while (tmp->next != NULL)
+	{
+		ft_printf("content :%d\n", tmp->content);
+		ft_printf("index : %d\n", tmp->index);
+		tmp = tmp->next;
+	}
+	ft_printf("content :%d\n", tmp->content);
+	ft_printf("index : %d\n", tmp->index);
+}
+
+
 void	set_params(t_data *data, int ac, char **av)
 {
+	data->ac = ac;
 	if (ac < 2)
 	{
 		free (data);
@@ -41,22 +59,10 @@ int	main(int ac, char **av)
 		ft_putstr_fd("Struct alloc error\n", 2);
 		exit(1);
 	}
-	/*if (ac < 2)
-	{
-		free(data);
-		exit(1);
-	}
-	else if (ac == 2)
-		data->args = ft_split(av[1], ' ');
-	else
-		data->args = av + 1;
-	if (!check_args(data->args))
-	{
-		data->error = 1;
-		free_error(data);
-	}*/
 	set_params(data, ac, av);
-	ft_printf("Yes idiot");
-	//free_data(data);
+	ft_printf("Yes idiot\n");
+	init_lists(data);
+	print_list(data->stack_a);
+	free_data(data);
 	return (0);
 }

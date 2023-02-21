@@ -6,13 +6,12 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:14:13 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/19 16:38:44 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:20:57 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
 static void	free_list(t_list *stack)
 {
 	t_list	*tmp;
@@ -24,18 +23,18 @@ static void	free_list(t_list *stack)
 		free(tmp);
 	}
 	free(stack);
-}*/
+}
 
 static void	display_error(int error)
 {
 	if (error == 1)
-		ft_putstr_fd("Wrong arguments idiot", 2);
+		ft_putstr_fd("Error\n", 2);
 }
 
 void	free_error(t_data *data)
 {
 	display_error(data->error);
-	if (data -> error <= 1)
+	if (data -> error <= 1 && data->ac == 2)
 		ft_freetab(data->args);
 	free(data);
 	exit(1);
@@ -43,10 +42,11 @@ void	free_error(t_data *data)
 
 void	free_data(t_data *data)
 {
-	ft_freetab(data->args);
-	//free_list(data->stack_a);
-	/*if (data -> bsize > 0)
-		free_list(data->stack_b);*/
+	if (data->ac == 2)
+		ft_freetab(data->args);
+	free_list(data->stack_a);
+	if (data->b_size > 0)
+		free_list(data->stack_b);
 	free(data);
 	exit(0);
 }
