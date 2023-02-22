@@ -3,6 +3,11 @@ SRCS	= ./src/main.c \
 	  ./src/free.c \
 	  ./src/initlist.c \
 	  ./src/list_utils.c \
+	  ./src/sort.c \
+	  ./src/push.c \
+	  ./src/rotate.c \
+	  ./src/swap.c \
+	  ./src/reverserotate.c \
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -10,7 +15,7 @@ LIBFT	= libft/libft.a
 
 RM	= rm -f
 
-CC	= cc
+CC	= clang
 
 CFLAGS	= -Wall -Werror -Wextra
 

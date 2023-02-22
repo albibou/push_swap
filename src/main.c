@@ -60,9 +60,11 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	set_params(data, ac, av);
-	ft_printf("Yes idiot\n");
+	//ft_printf("Yes idiot\n");
 	init_lists(data);
-	print_list(data->stack_a);
+	//print_list(data->stack_a);
+	sort_hub(data);
+	//print_list(data->stack_a);
 	free_data(data);
 	return (0);
 }
