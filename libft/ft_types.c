@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_types.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 17:13:36 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/23 13:40:40 by atardif          ###   ########.fr       */
+/*   Created: 2022/12/08 10:42:45 by atardif           #+#    #+#             */
+/*   Updated: 2022/12/09 11:45:01 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-static void	push(t_list **target, t_list **from)
+int	ft_putstr(char *str)
 {
-	t_list *tmp;
-	t_list *new;
+	int	i;
 
-	tmp = *from;
-	new = ft_lstnew(tmp->content);
-	new->index = tmp->index;
-	ft_lstadd_front(target, new);
-	*from = tmp->next;
-	free(tmp);
+	i = 0;
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		i = 6;
+	}
+	else
+	{
+		while (str[i])
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+	}
+	return (i);
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+int	ft_isstr(va_list ap)
 {
-	push(stack_a, stack_b);
-	ft_printf("pa\n");
-}
+	char	*str;
+	int		i;
 
-void	pb(t_list **stack_b, t_list **stack_a)
-{
-	push(stack_b, stack_a);
-	ft_printf("pb\n");
+	str = (char *) va_arg(ap, char *);
+	i = ft_putstr(str);
+	return (i);
 }

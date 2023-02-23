@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:31:01 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 16:45:47 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/23 13:59:27 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ int	main(int ac, char **av)
 	init_lists(data);
 	//print_list(data->stack_a);
 	sort_hub(data);
+	//ft_printf("A\n");
+	//print_list(data->stack_a);
+	//ft_printf("B\n");
 	//print_list(data->stack_a);
 	free_data(data);
 	return (0);
