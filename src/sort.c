@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 11:48:49 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/23 17:36:59 by atardif          ###   ########.fr       */
+/*   Updated: 2023/02/24 12:14:37 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	sort_3(t_list **stack)
 	t_list	*tmp;
 
 	tmp = *stack;
+	if (!is_sorted(tmp))
+			return ;
 	if (tmp->index > tmp->next->index && tmp->index < tmp->next->next->index)
 		sa(stack);
 	else if(tmp->index < tmp->next->index &&
