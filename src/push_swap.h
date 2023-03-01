@@ -27,6 +27,8 @@ typedef struct s_data
 	int		b_size;
 	int		error;
 	int		ac;
+	int		*lis;
+	int		l_size;
 	t_list	*stack_a;
 	t_list	*stack_b;
 }	t_data;
@@ -34,6 +36,7 @@ typedef struct s_data
 int		check_args(char **args);
 int	is_sorted(t_list *stack);
 long	min_list(t_list *stack, long min, long omin);
+void	get_lis(t_data *data);
 void	free_error(t_data *data);
 void	free_data(t_data *data);
 void	init_lists(t_data *data);

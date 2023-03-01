@@ -9,7 +9,8 @@ SRCS	= ./src/main.c \
 	  ./src/rotate.c \
 	  ./src/swap.c \
 	  ./src/reverserotate.c \
-	  ./src/trichelou.c \
+	  ./src/trilouche.c \
+	  ./src/lis.c \
 
 OBJS	= ${SRCS:.c=.o}
 

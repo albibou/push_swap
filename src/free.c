@@ -45,6 +45,7 @@ void	free_data(t_data *data)
 	if (data->ac == 2)
 		ft_freetab(data->args);
 	free_list(data->stack_a);
+	free(data->lis);
 	if (data->b_size > 0)
 		free_list(data->stack_b);
 	free(data);

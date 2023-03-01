@@ -28,6 +28,17 @@ void	print_list(t_list *stack)
 	ft_printf("index : %d\n", tmp->index);
 }
 
+void	print_int_tab(int *tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		ft_printf("%d\n", tab[i]);
+		i++;
+	}
+}
 
 void	set_params(t_data *data, int ac, char **av)
 {
@@ -63,11 +74,10 @@ int	main(int ac, char **av)
 	//ft_printf("Yes idiot\n");
 	init_lists(data);
 	//print_list(data->stack_a);
+	get_lis(data);
+	//ft_printf("%d\n\n ", data->l_size);
+	//print_int_tab(data->lis, data->l_size);
 	sort_hub(data);
-	//ft_printf("A\n");
-	//print_list(data->stack_a);
-	//ft_printf("B\n");
-	//print_list(data->stack_a);
 	free_data(data);
 	return (0);
 }
