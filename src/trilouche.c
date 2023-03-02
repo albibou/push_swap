@@ -50,7 +50,7 @@ int	in_chunk(t_list **stack_a, int chunk, int *lis, int l_size)
 			return (0);
 	return (1);
 }
-
+/*
 void	best_move(t_list **stack, int chunk, t_data *data)
 {
 	int	firstpos;
@@ -64,7 +64,7 @@ void	best_move(t_list **stack, int chunk, t_data *data)
 	size = ft_lstsize(tmp);
 	while(tmp->next != NULL)
 	{
-		if (is_in_chunk(tmp->index, chunk))
+		if (is_in_chunk(tmp->index, chunk) && !in_lis(tmp->index, data->lis, data->l_size))
 				break;
 		tmp = tmp->next;
 		firstpos++;
@@ -79,16 +79,16 @@ void	best_move(t_list **stack, int chunk, t_data *data)
 	}
 	if (firstpos <= size - lastpos)
 	{
-		while(!is_in_chunk((*stack)->index, chunk))
+		while(!is_in_chunk((*stack)->index, chunk) || in_lis(tmp->index, data->lis, data->l_size))
 			ra(stack);
 	}
 	else if (size - lastpos < firstpos)
 	{
-		while(!is_in_chunk((*stack)->index, chunk))
+		while(!is_in_chunk((*stack)->index, chunk) || in_lis(tmp->index, data->lis, data->l_size))
 			rra(stack);
 	}
 
-}
+}*/
 
 void	pre_sort(t_list **stack_a, t_list **stack_b, int ratio, int chunk, t_data *data)
 {
@@ -193,15 +193,15 @@ void	first_phase10(t_list **stack_a, t_list **stack_b, t_data *data)
 	int	chunk8;
 	int	chunk9;
 
-	chunk = data->a_size / 10 - 1;
-	chunk2 = (chunk * 2) + 1;
-	chunk3 = (chunk * 3) + 1;
-	chunk4 = (chunk * 4) + 1;
-	chunk5 = (chunk * 5) + 1;
-	chunk6 = (chunk * 6) + 1;
-	chunk7 = (chunk * 7) + 1;
-	chunk8 = (chunk * 8) + 1;
-	chunk9 = (chunk * 9) + 1;
+	chunk = data->a_size / 10;
+	chunk2 = (chunk * 2);
+	chunk3 = (chunk * 3);
+	chunk4 = (chunk * 4);
+	chunk5 = (chunk * 5);
+	chunk6 = (chunk * 6);
+	chunk7 = (chunk * 7);
+	chunk8 = (chunk * 8);
+	chunk9 = (chunk * 9);
 	while (!in_chunk(stack_a, chunk, data->lis, data->l_size))
 		pre_sort(stack_a, stack_b, chunk, chunk, data);
 	while (!in_chunk(stack_a, chunk2, data->lis, data->l_size))
@@ -221,9 +221,82 @@ void	first_phase10(t_list **stack_a, t_list **stack_b, t_data *data)
 	while (!in_chunk(stack_a, chunk9, data->lis, data->l_size))
 		pre_sort(stack_a, stack_b, chunk, chunk9, data);
 	while (!in_chunk(stack_a, data->a_size, data->lis, data->l_size))
-		pre_sort(stack_a, stack_b, chunk, data->a_size, data);
+		pre_sort(stack_a, stack_b, chunk, data->a_size - 1, data);
 }
 
+void	first_phase9(t_list **stack_a, t_list **stack_b, t_data *data)
+{
+	int	chunk;
+	int	chunk2;
+	int	chunk3;
+	int	chunk4;
+	int	chunk5;
+	int	chunk6;
+	int	chunk7;
+	int	chunk8;
+
+	chunk = data->a_size / 9;
+	chunk2 = (chunk * 2);
+	chunk3 = (chunk * 3);
+	chunk4 = (chunk * 4);
+	chunk5 = (chunk * 5);
+	chunk6 = (chunk * 6);
+	chunk7 = (chunk * 7);
+	chunk8 = (chunk * 8);
+	while (!in_chunk(stack_a, chunk, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk, data);
+	while (!in_chunk(stack_a, chunk2, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk2, data);
+	while (!in_chunk(stack_a, chunk3, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk3, data);
+	while (!in_chunk(stack_a, chunk4, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk4, data);
+	while (!in_chunk(stack_a, chunk5, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk5, data);
+	while (!in_chunk(stack_a, chunk6, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk6, data);
+	while (!in_chunk(stack_a, chunk7, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk7, data);
+	while (!in_chunk(stack_a, chunk8, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk8, data);
+	while (!in_chunk(stack_a, data->a_size, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, data->a_size - 1, data);
+}
+
+void	first_phase8(t_list **stack_a, t_list **stack_b, t_data *data)
+{
+	int	chunk;
+	int	chunk2;
+	int	chunk3;
+	int	chunk4;
+	int	chunk5;
+	int	chunk6;
+	int	chunk7;
+
+	chunk = data->a_size / 9;
+	chunk2 = (chunk * 2);
+	chunk3 = (chunk * 3);
+	chunk4 = (chunk * 4);
+	chunk5 = (chunk * 5);
+	chunk6 = (chunk * 6);
+	chunk7 = (chunk * 7);
+	while (!in_chunk(stack_a, chunk, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk, data);
+	while (!in_chunk(stack_a, chunk2, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk2, data);
+	while (!in_chunk(stack_a, chunk3, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk3, data);
+	while (!in_chunk(stack_a, chunk4, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk4, data);
+	while (!in_chunk(stack_a, chunk5, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk5, data);
+	while (!in_chunk(stack_a, chunk6, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk6, data);
+	while (!in_chunk(stack_a, chunk7, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, chunk7, data);
+	while (!in_chunk(stack_a, data->a_size, data->lis, data->l_size))
+		pre_sort(stack_a, stack_b, chunk, data->a_size - 1, data);
+}
 
 void	first_phase4(t_list **stack_a, t_list **stack_b, t_data *data)
 {
@@ -231,9 +304,9 @@ void	first_phase4(t_list **stack_a, t_list **stack_b, t_data *data)
 	int	chunk2;
 	int	chunk3;
 
-	chunk = data->a_size / 4 - 1;
-	chunk2 = (chunk * 2) + 1;
-	chunk3 = (chunk * 3) + 1;
+	chunk = data->a_size / 4;
+	chunk2 = (chunk * 2);
+	chunk3 = (chunk * 3);
 	while (!in_chunk(stack_a, chunk, data->lis, data->l_size))
 		pre_sort(stack_a, stack_b, chunk, chunk, data);
 	while (!in_chunk(stack_a, chunk2, data->lis, data->l_size))
@@ -241,7 +314,7 @@ void	first_phase4(t_list **stack_a, t_list **stack_b, t_data *data)
 	while (!in_chunk(stack_a, chunk3, data->lis, data->l_size))
 		pre_sort(stack_a, stack_b, chunk, chunk3, data);
 	while (!in_chunk(stack_a, data->a_size, data->lis, data->l_size))
-		pre_sort(stack_a, stack_b, chunk, data->a_size, data);
+		pre_sort(stack_a, stack_b, chunk, data->a_size - 1, data);
 }
 
 
