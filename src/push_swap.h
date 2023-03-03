@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:42:12 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/23 18:50:19 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:21:36 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@
 # include <stdlib.h>
 # include <limits.h>
 
+typedef struct s_chunk
+{
+	int	ratio;
+	int	chunk;
+}	t_chunk;
+
+typedef struct s_sub
+{
+	int	*lis;
+	int	l_size;
+}	t_sub;
+
 typedef struct s_data
 {
 	char	**args;
@@ -27,15 +39,21 @@ typedef struct s_data
 	int		b_size;
 	int		error;
 	int		ac;
-	int		*lis;
 	int		l_size;
+	t_sub	sub;
 	t_list	*stack_a;
 	t_list	*stack_b;
+	t_chunk	chunk;
 }	t_data;
 
 int		check_args(char **args);
-int	is_sorted(t_list *stack);
+int		is_sorted(t_list *stack);
+int		in_lis(int index, int *lis, int l_size);
+int		is_in_chunk(int index, int chunk);
+int		chunk_left(t_list **stack_a, int chunk, int *lis, int l_size);
+int		index_pos(t_list *stack, int target);
 long	min_list(t_list *stack, long min, long omin);
+void	last_insert(t_list **stack_a);
 void	get_lis(t_data *data);
 void	free_error(t_data *data);
 void	free_data(t_data *data);

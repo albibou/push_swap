@@ -6,12 +6,11 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 11:48:49 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/24 12:14:37 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/02 16:17:09 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	sort_3(t_list **stack)
 {
@@ -19,23 +18,22 @@ void	sort_3(t_list **stack)
 
 	tmp = *stack;
 	if (!is_sorted(tmp))
-			return ;
+		return ;
 	if (tmp->index > tmp->next->index && tmp->index < tmp->next->next->index)
 		sa(stack);
-	else if(tmp->index < tmp->next->index &&
-			tmp->index < tmp->next->next->index)
+	else if (tmp->index < tmp->next->index
+		&& tmp->index < tmp->next->next->index)
 		sa(stack);
-	else if (tmp->index > tmp->next->index &&
-			tmp->next->index > tmp->next->next->index)
+	else if (tmp->index > tmp->next->index
+		&& tmp->next->index > tmp->next->next->index)
 		sa(stack);
 	tmp = *stack;
 	if (tmp->index < tmp->next->index && tmp->index > tmp->next->next->index)
 		rra(stack);
-	else if (tmp->index > tmp->next->index &&
-			tmp->index > tmp->next->next->index)
+	else if (tmp->index > tmp->next->index
+		&& tmp->index > tmp->next->next->index)
 		ra(stack);
 }
-
 
 void	sort_hub(t_data *data)
 {
@@ -44,8 +42,5 @@ void	sort_hub(t_data *data)
 	else if (data->a_size == 3)
 		sort_3(&data->stack_a);
 	else
-	{
-		//insert_sort(&data->stack_a, &data->stack_b, data);
 		tri_chelou(&data->stack_a, &data->stack_b, data);
-	}
 }

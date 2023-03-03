@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:14:32 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/23 13:41:10 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/03 15:32:49 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	assign_index(t_list *stack, int target, int i)
 
 void	init_index(t_list *stack, int stacksize)
 {
-	int	i;
+	int		i;
 	long	min;
 
 	i = 0;
@@ -51,7 +51,7 @@ static void	create_list(t_list **stack, char **args)
 	{
 		nb = ft_atoi(args[i]);
 		tmp = ft_lstnew(nb);
-		ft_lstadd_back(stack,tmp);
+		ft_lstadd_back(stack, tmp);
 		i++;
 	}
 }

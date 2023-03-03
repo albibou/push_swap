@@ -2,7 +2,6 @@ SRCS	= ./src/main.c \
 	  ./src/parse.c \
 	  ./src/free.c \
 	  ./src/initlist.c \
-	  ./src/insert_sort.c \
 	  ./src/list_utils.c \
 	  ./src/sort.c \
 	  ./src/push.c \
@@ -11,6 +10,7 @@ SRCS	= ./src/main.c \
 	  ./src/reverserotate.c \
 	  ./src/trilouche.c \
 	  ./src/lis.c \
+	  ./src/sort_utils.c \
 
 OBJS	= ${SRCS:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:14:13 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 14:20:57 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/03 12:23:45 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	free_data(t_data *data)
 	if (data->ac == 2)
 		ft_freetab(data->args);
 	free_list(data->stack_a);
-	free(data->lis);
+	free(data->sub.lis);
 	if (data->b_size > 0)
 		free_list(data->stack_b);
 	free(data);

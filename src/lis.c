@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lis.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/02 16:01:19 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/02 18:01:46 by atardif          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-
 
 int	max_in_tab(int	*lis, int size)
 {
@@ -33,7 +43,7 @@ int	*lenlis(int *stackcpy, int size)
 		j = 0;
 		while (j < i)
 		{
-			if(stackcpy[i] > stackcpy[j] && lis[i] < lis[j] + 1)
+			if (stackcpy[i] > stackcpy[j] && lis[i] < lis[j] + 1)
 				lis[i] = lis[j] + 1;
 			j++;
 		}
@@ -44,8 +54,8 @@ int	*lenlis(int *stackcpy, int size)
 
 int	*copyintab(t_list *stack, int size)
 {
-	int	*array;
-	int	i;
+	int		*array;
+	int		i;
 	t_list	*tmp;
 
 	array = ft_calloc(sizeof(int), size);
@@ -60,7 +70,7 @@ int	*copyintab(t_list *stack, int size)
 	return (array);
 }
 
-int	*init_lis(int *lis_len, int *stackcpy, int max, int  size)
+int	*init_lis(int *lis_len, int *stackcpy, int max, int size)
 {
 	int	tmp;
 	int	*lis;
@@ -81,7 +91,7 @@ int	*init_lis(int *lis_len, int *stackcpy, int max, int  size)
 		}
 		i--;
 	}
-	return(lis);
+	return (lis);
 }
 
 void	get_lis(t_data *data)
@@ -91,9 +101,8 @@ void	get_lis(t_data *data)
 
 	stackcpy = copyintab(data->stack_a, data->a_size);
 	lis_len = lenlis(stackcpy, data->a_size);
-	data->l_size = max_in_tab(lis_len, data->a_size);
-	data->lis = init_lis(lis_len, stackcpy, data->l_size, data->a_size);
+	data->sub.l_size = max_in_tab(lis_len, data->a_size);
+	data->sub.lis = init_lis(lis_len, stackcpy, data->sub.l_size, data->a_size);
 	free(stackcpy);
 	free(lis_len);
 }
-

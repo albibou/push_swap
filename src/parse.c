@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:14:22 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 12:17:05 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/03 18:07:43 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	multisign(char *tmp)
 
 	i = 0;
 	sign = 0;
-	while(tmp[i] != '\0')
+	while (tmp[i] != '\0')
 	{
 		if (tmp[i] == '-' || tmp[i] == '+')
 			sign++;
@@ -45,24 +45,24 @@ int	check_args(char **args)
 {
 	int		i;
 	long	nb;
-	char	*tmp;
+	char	*s;
 
 	i = 0;
 	while (*args)
 	{
-		tmp = *args;
+		s = *args;
 		i = 0;
-		if (tmp[i] == '\0' || (!ft_issign(tmp[i]) && !ft_isdigit(tmp[i])))
+		if (s[i] == '\0' || (!ft_issign(s[i]) && !ft_isdigit(s[i])))
 			return (0);
-		else if ((!ft_isdigit(tmp[i]) && tmp[i + 1] == '\0') || !multisign(tmp))
+		else if ((!ft_isdigit(s[i]) && s[i + 1] == '\0') || !multisign(s))
 			return (0);
-		while (tmp[i] != '\0')
+		while (s[i] != '\0')
 		{
-			if (!ft_isdigit(tmp[i]) && !ft_issign(tmp[i]))
+			if (!ft_isdigit(s[i]) && !ft_issign(s[i]))
 				return (0);
 			i++;
 		}
-		nb = ft_atoi(tmp);
+		nb = ft_atoi(s);
 		if (nb < INT_MIN || nb > INT_MAX || !check_double(nb, args + 1))
 			return (0);
 		args++;

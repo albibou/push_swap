@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:13:36 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/23 13:40:40 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/02 16:03:52 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	push(t_list **target, t_list **from)
 {
-	t_list *tmp;
-	t_list *new;
+	t_list	*tmp;
+	t_list	*new;
 
 	tmp = *from;
 	new = ft_lstnew(tmp->content);

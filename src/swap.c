@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:13:59 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 17:19:53 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/02 16:05:05 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	swap(t_list **stack)
 	t_list	*tmp;
 
 	tmp = *stack;
-	if(!tmp || tmp->next == NULL)
-		return;
+	if (!tmp || tmp->next == NULL)
+		return ;
 	*stack = (*stack)->next;
 	tmp->next = (*stack)->next;
 	(*stack)->next = tmp;
