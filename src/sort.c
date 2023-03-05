@@ -12,6 +12,26 @@
 
 #include "push_swap.h"
 
+void	sort_5(t_data *data)
+{
+	int	tmp_size;
+
+	tmp_size = ft_lstsize(data->stack_a);
+	while (tmp_size > 3)
+	{
+		if (data->stack_a->index == 0 || (data->a_size = 4 && data->stack_a->index == 1))
+		       pb(&data->stack_b, &data->stack_a);
+		else
+			ra(&data->stack_a);
+		tmp_size = ft_lstsize(data->stack_a);
+	}	
+	sort_3(&data->stack_a);
+	pa(&data->stack_a, &data->stack_b);
+	pa(&data->stack_a, &data->stack_b);
+	if (data->stack_a->index > data->stack_a->next->index)
+		sa(&data->stack_a);
+}
+
 void	sort_3(t_list **stack)
 {
 	t_list	*tmp;
@@ -41,6 +61,8 @@ void	sort_hub(t_data *data)
 		sa(&data->stack_a);
 	else if (data->a_size == 3)
 		sort_3(&data->stack_a);
+	else if (data->a_size <= 5)
+		sort_5(data);
 	else
 		tri_chelou(&data->stack_a, &data->stack_b, data);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static void	push(t_list **target, t_list **from)
 {
@@ -30,11 +30,9 @@ static void	push(t_list **target, t_list **from)
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_a, stack_b);
-	ft_printf("pa\n");
 }
 
 void	pb(t_list **stack_b, t_list **stack_a)
 {
 	push(stack_b, stack_a);
-	ft_printf("pb\n");
 }

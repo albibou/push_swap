@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 17:13:36 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/02 16:03:52 by atardif          ###   ########.fr       */
+/*   Created: 2023/02/17 17:13:59 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/02 16:05:05 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-static void	push(t_list **target, t_list **from)
+static void	swap(t_list **stack)
 {
 	t_list	*tmp;
-	t_list	*new;
 
-	tmp = *from;
-	if (!tmp)
+	tmp = *stack;
+	if (!tmp || tmp->next == NULL)
 		return ;
-	new = ft_lstnew(tmp->content);
-	new->index = tmp->index;
-	ft_lstadd_front(target, new);
-	*from = tmp->next;
-	free(tmp);
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	sa(t_list **stack_a)
 {
-	push(stack_a, stack_b);
-	ft_printf("pa\n");
+	swap(stack_a);
 }
 
-void	pb(t_list **stack_b, t_list **stack_a)
+void	sb(t_list **stack_b)
 {
-	push(stack_b, stack_a);
-	ft_printf("pb\n");
+	swap(stack_b);
+}
+
+void	ss(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
 }

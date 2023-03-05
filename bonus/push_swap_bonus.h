@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trash.h                                            :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 13:45:08 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/17 14:46:58 by atardif          ###   ########.fr       */
+/*   Created: 2023/02/09 12:42:12 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/03 16:21:36 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _TRASH_H
-# define _TRASH_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-# include "./libft/libft.h"
-# include "./libft/get_next_line.h"
-# include "./libft/ft_printf.h"
+# include "../libft/libft.h"
+# include "../libft/get_next_line.h"
+# include "../libft/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
-
-typedef struct	s_data
+typedef struct s_data
 {
-	char **args;
-	char **bargs;
-	int	a_size;
-	int	b_size;	
+	char	**args;
+	int		a_size;
+	int		b_size;
+	int		error;
+	int		ac;
 	t_list	*stack_a;
 	t_list	*stack_b;
-} t_data;
+}	t_data;
 
+int		check_args(char **args);
+int		is_sorted(t_list *stack);
+long	min_list(t_list *stack, long min, long omin);
+void	checker(t_data *data);
+void	free_error(t_data *data);
+void	free_data(t_data *data);
+void	init_lists(t_data *data);
 void	pa(t_list **stack_a, t_list **stack_b);
-void	pb(t_list **stack_a, t_list **stack_b);
-void	sa(t_list *stack_a);
-void	sb(t_list *stack_b);
-void	ss(t_list *stack_a, t_list *stack_b);
+void	pb(t_list **stack_b, t_list **stack_a);
+void	sa(t_list **stack_a);
+void	sb(t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
 void	rr(t_list **stack_a, t_list **stack_b);

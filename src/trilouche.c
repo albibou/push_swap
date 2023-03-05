@@ -24,7 +24,7 @@ void	pre_sort(t_list **stack_a, t_list **stack_b, t_chunk chunk, t_sub sub)
 		&& !in_lis(index, sub.lis, sub.l_size))
 	{
 		pb(stack_b, stack_a);
-		if (is_in_chunk((*stack_a)->index, chunk.chunk))
+		if (is_in_chunk((*stack_a)->index, chunk.chunk) && !in_lis((*stack_a)->index, sub.lis, sub.l_size))
 			rb(stack_b);
 		else
 			rr(stack_a, stack_b);
@@ -49,7 +49,7 @@ void	insert_back_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 		pos = index_pos(*stack_b, i);
 		while ((*stack_b)->index != i)
 		{
-			if (pos <= (i + 1) / 2)
+			if (pos <= i  / 2)
 				rb(stack_b);
 			else
 				rrb(stack_b);
@@ -85,7 +85,7 @@ void	rotate_lis(t_list **stack_a, t_data *data)
 
 void	first_phase(t_list **stack_a, t_list **stack_b, t_data *data, int div)
 {
-	float	i;
+	int	i;
 
 	i = 2;
 	data->chunk.ratio = data->a_size / div;

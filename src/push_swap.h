@@ -58,6 +58,7 @@ void	get_lis(t_data *data);
 void	free_error(t_data *data);
 void	free_data(t_data *data);
 void	init_lists(t_data *data);
+void	first_phase(t_list **stack_a, t_list **stack_b, t_data *data, int div);
 void	insert_sort(t_list **stack_a, t_list **stack_b, t_data *data);
 void	tri_chelou(t_list **stack_a, t_list **stack_b, t_data *data);
 void	sort_hub(t_data *data);

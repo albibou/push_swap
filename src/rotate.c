@@ -18,6 +18,8 @@ static void	rotate(t_list **stack)
 	t_list	*new;
 
 	tmp = *stack;
+	if (!tmp || tmp->next == NULL)
+		return ;
 	new = ft_lstnew(tmp->content);
 	new->index = tmp->index;
 	ft_lstadd_back(stack, new);
