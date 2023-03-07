@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverserotate.c                                    :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 17:13:50 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 17:31:27 by atardif          ###   ########.fr       */
+/*   Created: 2023/03/07 20:03:54 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/07 20:04:01 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,36 @@
 static void	reverse_rotate(t_list **stack)
 {
 	t_list	*bottom;
-	t_list	*new;
-	t_list	*tmp;
+	t_list	*beforelast;
+	t_list	*head;
 
-	tmp = *stack;
-	if (!tmp || tmp->next == NULL)
+	head = *stack;
+	beforelast = *stack;
+	if (!head || head->next == NULL)
 		return ;
-	bottom = ft_lstlast(tmp);
-	new = ft_lstnew(bottom->content);
-	new->index = bottom->index;
-	ft_lstadd_front(&tmp, new);
-	while (tmp->next->next != NULL)
-		tmp = tmp->next;
-	tmp->next = NULL;
-	free(bottom);
-	*stack = new;
+	bottom = ft_lstlast(head);
+	while (beforelast->next->next != NULL)
+		beforelast = beforelast->next;
+	beforelast->next = NULL;
+	*stack = bottom;
+	(*stack)->next = head;
 }
 
 void	rra(t_list **stack_a)
 {
 	reverse_rotate(stack_a);
+	ft_printf("rra\n");
 }
 
 void	rrb(t_list **stack_b)
 {
 	reverse_rotate(stack_b);
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
+	ft_printf("rrr\n");
 }

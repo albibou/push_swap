@@ -6,13 +6,13 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:14:32 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/03 15:32:49 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/07 19:28:39 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	assign_index(t_list *stack, int target, int i)
+static void	assign_index(t_list *stack, int target, int i)
 {
 	while (stack->next != NULL)
 	{
@@ -24,7 +24,7 @@ void	assign_index(t_list *stack, int target, int i)
 		stack->index = i;
 }
 
-void	init_index(t_list *stack, int stacksize)
+static void	init_index(t_list *stack, int stacksize)
 {
 	int		i;
 	long	min;
@@ -39,7 +39,7 @@ void	init_index(t_list *stack, int stacksize)
 	}
 }
 
-static void	create_list(t_list **stack, char **args)
+static void	create_list(t_list **stack, char **args, t_data *data)
 {
 	int		i;
 	int		nb;
@@ -51,6 +51,8 @@ static void	create_list(t_list **stack, char **args)
 	{
 		nb = ft_atoi(args[i]);
 		tmp = ft_lstnew(nb);
+		if (!tmp)
+			free_data(data);
 		ft_lstadd_back(stack, tmp);
 		i++;
 	}
@@ -58,7 +60,7 @@ static void	create_list(t_list **stack, char **args)
 
 void	init_lists(t_data *data)
 {
-	create_list(&data->stack_a, data->args);
+	create_list(&data->stack_a, data->args, data);
 	data->a_size = ft_lstsize(data->stack_a);
 	if (data->a_size == 1 || !is_sorted(data->stack_a))
 		free_data(data);

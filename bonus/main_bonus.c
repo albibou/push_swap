@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 12:31:01 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/02 18:06:59 by atardif          ###   ########.fr       */
+/*   Created: 2023/03/07 11:57:13 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/07 12:12:16 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int	main(int ac, char **av)
 	set_params(data, ac, av);
 	init_lists(data);
 	checker(data);
-	if (!is_sorted(data->stack_a))
+	if (!is_sorted(data->stack_a) && ft_lstsize(data->stack_b) == 0)
 		ft_putstr_fd("OK\n", 1);
-	else 	
+	else
 		ft_putstr_fd("KO\n", 1);
 	free_data(data);
 	return (0);

@@ -8,7 +8,7 @@ SRCS	= ./src/main.c \
 	  ./src/rotate.c \
 	  ./src/swap.c \
 	  ./src/reverserotate.c \
-	  ./src/trilouche.c \
+	  ./src/accorns_sort.c \
 	  ./src/lis.c \
 	  ./src/sort_utils.c \
 
@@ -20,7 +20,7 @@ BONUSSRCS	= ./bonus/main_bonus.c \
 		  ./bonus/rotate_bonus.c \
 		  ./bonus/initlist_bonus.c \
 		  ./bonus/push_bonus.c \
-		  ./bonus/reverserotate_bonus.c \
+		  ./bonus/reverse_rotate_bonus.c \
 		  ./bonus/swap_bonus.c \
 
 OBJS	= ${SRCS:.c=.o}

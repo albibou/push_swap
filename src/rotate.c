@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:13:43 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 17:35:49 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/07 19:38:25 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 static void	rotate(t_list **stack)
 {
 	t_list	*tmp;
-	t_list	*new;
+	t_list	*bottom;
 
 	tmp = *stack;
 	if (!tmp || tmp->next == NULL)
 		return ;
-	new = ft_lstnew(tmp->content);
-	new->index = tmp->index;
-	ft_lstadd_back(stack, new);
-	*stack = tmp->next;
-	free(tmp);
+	bottom = ft_lstlast(*stack);
+	*stack = (*stack)->next;
+	bottom->next = tmp;
+	tmp->next = NULL;
 }
 
 void	ra(t_list **stack_a)

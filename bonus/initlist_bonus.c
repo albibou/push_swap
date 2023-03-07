@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initlist.c                                         :+:      :+:    :+:   */
+/*   initlist_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 17:14:32 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/03 15:32:49 by atardif          ###   ########.fr       */
+/*   Created: 2023/03/07 11:57:00 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/07 20:09:06 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static void	create_list(t_list **stack, char **args)
 	{
 		nb = ft_atoi(args[i]);
 		tmp = ft_lstnew(nb);
+		if (!tmp)
+			free_data(data);
 		ft_lstadd_back(stack, tmp);
 		i++;
 	}
@@ -60,6 +62,8 @@ void	init_lists(t_data *data)
 {
 	create_list(&data->stack_a, data->args);
 	data->a_size = ft_lstsize(data->stack_a);
+	if (data->a_size == 1 || !is_sorted(data->stack_a))
+		free_data(data);
 	init_index(data->stack_a, data->a_size);
 	data->stack_b = NULL;
 }

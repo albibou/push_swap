@@ -1,12 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/07 11:56:38 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/07 12:25:25 by atardif          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-
-int	compare_instructions(t_data *data, char *str)
+int	compare_instructions(t_data *data, char *str, int i)
 {
-	int	i;
-
-	i = ft_strlen(str);
 	if (ft_strncmp(str, "sa\n", i) == 0)
 		sa(&data->stack_a);
 	else if (ft_strncmp(str, "sb\n", i) == 0)
@@ -30,18 +37,20 @@ int	compare_instructions(t_data *data, char *str)
 	else if (ft_strncmp(str, "rrr\n", i) == 0)
 		rrr(&data->stack_a, &data->stack_b);
 	else
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
 
 void	checker(t_data *data)
 {
 	char	*str;
+	int		i;
 
 	str = get_next_line(0);
 	while (str)
 	{
-		if (compare_instructions(data, str) == 1)
+		i = ft_strlen(str);
+		if (compare_instructions(data, str, i) == 1)
 		{
 			free(str);
 			ft_putstr_fd("Error\n", 2);

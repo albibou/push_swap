@@ -6,13 +6,13 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:31:01 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/02 18:06:59 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:50:31 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_params(t_data *data, int ac, char **av)
+static void	set_params(t_data *data, int ac, char **av)
 {
 	data->ac = ac;
 	if (ac < 2)

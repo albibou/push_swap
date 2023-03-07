@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trilouche.c                                        :+:      :+:    :+:   */
+/*   accorns_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 17:12:49 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/03 16:17:47 by atardif          ###   ########.fr       */
+/*   Created: 2023/03/07 15:06:01 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/07 19:53:29 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	pre_sort(t_list **stack_a, t_list **stack_b, t_chunk chunk, t_sub sub)
 		&& !in_lis(index, sub.lis, sub.l_size))
 	{
 		pb(stack_b, stack_a);
-		if (is_in_chunk((*stack_a)->index, chunk.chunk) && !in_lis((*stack_a)->index, sub.lis, sub.l_size))
+		if (is_in_chunk((*stack_a)->index, chunk.chunk)
+			&& !in_lis((*stack_a)->index, sub.lis, sub.l_size))
 			rb(stack_b);
 		else
 			rr(stack_a, stack_b);
@@ -33,7 +34,7 @@ void	pre_sort(t_list **stack_a, t_list **stack_b, t_chunk chunk, t_sub sub)
 		ra(stack_a);
 }
 
-void	insert_back_sort(t_list **stack_a, t_list **stack_b, t_data *data)
+static void	insert_back_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	int		i;
 	int		pos;
@@ -49,7 +50,7 @@ void	insert_back_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 		pos = index_pos(*stack_b, i);
 		while ((*stack_b)->index != i)
 		{
-			if (pos <= i  / 2)
+			if (pos <= i / 2)
 				rb(stack_b);
 			else
 				rrb(stack_b);
@@ -59,7 +60,7 @@ void	insert_back_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 	}
 }
 
-void	rotate_lis(t_list **stack_a, t_data *data)
+static void	rotate_lis(t_list **stack_a, t_data *data)
 {
 	int		minlis;
 	int		minpos;
@@ -102,7 +103,7 @@ void	first_phase(t_list **stack_a, t_list **stack_b, t_data *data, int div)
 		pre_sort(stack_a, stack_b, data->chunk, data->sub);
 }
 
-void	tri_chelou(t_list **stack_a, t_list **stack_b, t_data *data)
+void	accorns_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	if (data->a_size < 200)
 		first_phase(stack_a, stack_b, data, 4);

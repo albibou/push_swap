@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 12:42:12 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/03 16:21:36 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/07 15:11:40 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,8 @@ void	get_lis(t_data *data);
 void	free_error(t_data *data);
 void	free_data(t_data *data);
 void	init_lists(t_data *data);
-void	first_phase(t_list **stack_a, t_list **stack_b, t_data *data, int div);
-void	insert_sort(t_list **stack_a, t_list **stack_b, t_data *data);
-void	tri_chelou(t_list **stack_a, t_list **stack_b, t_data *data);
+void	accorns_sort(t_list **stack_a, t_list **stack_b, t_data *data);
 void	sort_hub(t_data *data);
-void	sort_3(t_list **stack);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_b, t_list **stack_a);
 void	sa(t_list **stack_a);
