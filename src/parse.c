@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:14:22 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/09 13:54:36 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/09 16:50:54 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int	check_args(char **args)
 	char	*s;
 
 	i = 0;
+	if (!*args)
+		return (0);
 	while (*args)
 	{
 		s = *args;

@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:28:51 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/21 16:42:54 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/09 16:37:08 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ long	min_list(t_list *stack, long min, long omin)
 
 int	is_sorted(t_list *stack)
 {
+	if(!stack)
+		return (1);
 	while (stack->next->next != NULL)
 	{
 		if (stack->content > stack->next->content)
