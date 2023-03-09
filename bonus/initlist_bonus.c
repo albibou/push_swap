@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:57:00 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/09 11:15:30 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/09 15:04:04 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	init_lists(t_data *data)
 {
 	create_list(&data->stack_a, data->args, data);
 	data->a_size = ft_lstsize(data->stack_a);
-	if (data->a_size == 1 || !is_sorted(data->stack_a))
+	if (data->a_size == 1)
 		free_data(data);
 	init_index(data->stack_a, data->a_size);
 	data->stack_b = NULL;
