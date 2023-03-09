@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 11:58:20 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/07 11:58:23 by atardif          ###   ########.fr       */
+/*   Created: 2023/03/09 13:59:24 by atardif           #+#    #+#             */
+/*   Updated: 2023/03/09 13:59:35 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ static int	multisign(char *tmp)
 
 	i = 0;
 	sign = 0;
+	while (ft_isspace(tmp[i]))
+		i++;
+	if (ft_isdigit(tmp[i]))
+		sign++;
 	while (tmp[i] != '\0')
 	{
 		if (tmp[i] == '-' || tmp[i] == '+')
@@ -59,6 +63,18 @@ static int	check_double(long nb, char **args)
 	return (1);
 }	
 
+static int	first_check(char *s, int i)
+{
+	if (s[i] == '\0' || (!ft_issign(s[i]) && !ft_isdigit(s[i])
+			&& !ft_isspace(s[i])))
+		return (0);
+	else if (max(s))
+		return (0);
+	else if ((!ft_isdigit(s[i]) && s[i + 1] == '\0') || !multisign(s))
+		return (0);
+	return (1);
+}
+
 int	check_args(char **args)
 {
 	int		i;
@@ -70,13 +86,11 @@ int	check_args(char **args)
 	{
 		s = *args;
 		i = 0;
-		if (s[i] == '\0' || (!ft_issign(s[i]) && !ft_isdigit(s[i])) || max(s))
-			return (0);
-		else if ((!ft_isdigit(s[i]) && s[i + 1] == '\0') || !multisign(s))
+		if (!first_check(s, i))
 			return (0);
 		while (s[i] != '\0')
 		{
-			if (!ft_isdigit(s[i]) && !ft_issign(s[i]))
+			if (!ft_isdigit(s[i]) && !ft_issign(s[i]) && !ft_isspace(s[i]))
 				return (0);
 			i++;
 		}

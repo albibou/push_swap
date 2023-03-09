@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:59:15 by atardif           #+#    #+#             */
-/*   Updated: 2023/02/23 11:44:20 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/09 13:36:32 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -16,12 +16,12 @@
 
 typedef struct s_list
 {
-	int		content;
-	int		index;
+	int				content;
+	int				index;
 	struct s_list	*next;
 }			t_list;
 
-long		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_findabs(int x);
@@ -35,6 +35,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_issign(char c);
+int		ft_isspace(char c);
 char	*ft_itoa(int n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);

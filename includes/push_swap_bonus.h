@@ -6,16 +6,16 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:58:31 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/07 11:58:33 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/09 11:43:13 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
-# include "../libft/ft_printf.h"
+# include "../libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
+# include "../libft/includes/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>

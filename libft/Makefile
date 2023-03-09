@@ -1,59 +1,62 @@
-SRCS	= ft_atoi.c \
-	  ft_bzero.c \
-	  ft_calloc.c \
-	  ft_findabs.c \
-	  ft_findmax.c \
-	  ft_findmin.c \
-	  ft_freetab.c \
-	  ft_free_inttab.c \
-	  ft_isalnum.c \
-	  ft_isalpha.c \
-	  ft_isascii.c \
-	  ft_isdigit.c \
-	  ft_isprint.c \
-	  ft_issign.c \
-	  ft_itoa.c \
-	  ft_memchr.c \
-	  ft_memcmp.c \
-	  ft_memcpy.c \
-	  ft_memmove.c \
-	  ft_memset.c \
-	  ft_putchar_fd.c \
-	  ft_putendl_fd.c \
-	  ft_putnbr_fd.c \
-	  ft_putstr_fd.c \
-	  ft_split.c \
-	  ft_strchr.c \
-	  ft_strdup.c \
-	  ft_striteri.c \
-	  ft_strjoin.c \
-	  ft_strlcat.c \
-	  ft_strlcpy.c \
-	  ft_strlen.c \
-	  ft_strmapi.c \
-	  ft_strncmp.c \
-	  ft_strnstr.c \
-	  ft_strrchr.c \
-	  ft_strtrim.c \
-	  ft_substr.c \
-	  ft_tolower.c \
-	  ft_toupper.c \
-	  ft_lstnew.c \
-	  ft_lstadd_front.c \
-	  ft_lstsize.c \
-	  ft_lstlast.c \
-	  ft_lstadd_back.c \
-	  get_next_line.c \
-	  get_next_line_utils.c \
-	  ft_printf.c \
-	  ft_typec.c \
-	  ft_typedi.c \
-	  ft_typep.c \
-	  ft_types.c \
-	  ft_typeu.c \
-	  ft_typex.c \
+SRCS	= ./src/ft_atoi.c \
+	  ./src/ft_bzero.c \
+	  ./src/ft_calloc.c \
+	  ./src/ft_findabs.c \
+	  ./src/ft_findmax.c \
+	  ./src/ft_findmin.c \
+	  ./src/ft_freetab.c \
+	  ./src/ft_free_inttab.c \
+	  ./src/ft_isalnum.c \
+	  ./src/ft_isalpha.c \
+	  ./src/ft_isascii.c \
+	  ./src/ft_isdigit.c \
+	  ./src/ft_isprint.c \
+	  ./src/ft_issign.c \
+	  ./src/ft_isspace.c \
+	  ./src/ft_itoa.c \
+	  ./src/ft_memchr.c \
+	  ./src/ft_memcmp.c \
+	  ./src/ft_memcpy.c \
+	  ./src/ft_memmove.c \
+	  ./src/ft_memset.c \
+	  ./src/ft_putchar_fd.c \
+	  ./src/ft_putendl_fd.c \
+	  ./src/ft_putnbr_fd.c \
+	  ./src/ft_putstr_fd.c \
+	  ./src/ft_split.c \
+	  ./src/ft_strchr.c \
+	  ./src/ft_strdup.c \
+	  ./src/ft_striteri.c \
+	  ./src/ft_strjoin.c \
+	  ./src/ft_strlcat.c \
+	  ./src/ft_strlcpy.c \
+	  ./src/ft_strlen.c \
+	  ./src/ft_strmapi.c \
+	  ./src/ft_strncmp.c \
+	  ./src/ft_strnstr.c \
+	  ./src/ft_strrchr.c \
+	  ./src/ft_strtrim.c \
+	  ./src/ft_substr.c \
+	  ./src/ft_tolower.c \
+	  ./src/ft_toupper.c \
+	  ./src/ft_lstnew.c \
+	  ./src/ft_lstadd_front.c \
+	  ./src/ft_lstsize.c \
+	  ./src/ft_lstlast.c \
+	  ./src/ft_lstadd_back.c \
+	  ./src/get_next_line.c \
+	  ./src/get_next_line_utils.c \
+	  ./src/ft_printf.c \
+	  ./src/ft_typec.c \
+	  ./src/ft_typedi.c \
+	  ./src/ft_typep.c \
+	  ./src/ft_types.c \
+	  ./src/ft_typeu.c \
+	  ./src/ft_typex.c \
 
 OBJS	= ${SRCS:.c=.o}
+
+INCLUDES	= ./includes/
 
 NAME	= libft.a
 
@@ -66,7 +69,7 @@ CC	= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :	
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -I ${INCLUDES} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 		${AR} ${NAME} ${OBJS}

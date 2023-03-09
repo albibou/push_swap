@@ -27,11 +27,13 @@ OBJS	= ${SRCS:.c=.o}
 
 BONUSOBJS	= ${BONUSSRCS:.c=.o}
 
+INCLUDES	= ./includes/
+
 LIBFT	= libft/libft.a
 
 RM	= rm -f
 
-CC	= clang
+CC	= cc
 
 CFLAGS	= -Wall -Werror -Wextra
 
@@ -40,11 +42,16 @@ NAME	= push_swap
 BONUSNAME	= checker
 
 .c.o :	
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -I ${INCLUDES} -c $< -o ${<:.c=.o}
 
 ${NAME} :	${OBJS}
+		clear
+		@toilet -f pagga.tlf --gay "Libft"
 		make all -C libft
+		clear
 		${CC} -o ${NAME} -g ${CFLAGS} ${OBJS} ${LIBFT}
+		clear
+		@toilet -f pagga.tlf --gay "Enjoy ${NAME} !"
 
 ${BONUSNAME} :	${BONUSOBJS}
 		make all -C libft

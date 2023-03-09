@@ -6,7 +6,7 @@
 /*   By: atardif <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:57:00 by atardif           #+#    #+#             */
-/*   Updated: 2023/03/07 20:09:06 by atardif          ###   ########.fr       */
+/*   Updated: 2023/03/09 11:15:30 by atardif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_index(t_list *stack, int stacksize)
 	}
 }
 
-static void	create_list(t_list **stack, char **args)
+static void	create_list(t_list **stack, char **args, t_data *data)
 {
 	int		i;
 	int		nb;
@@ -60,7 +60,7 @@ static void	create_list(t_list **stack, char **args)
 
 void	init_lists(t_data *data)
 {
-	create_list(&data->stack_a, data->args);
+	create_list(&data->stack_a, data->args, data);
 	data->a_size = ft_lstsize(data->stack_a);
 	if (data->a_size == 1 || !is_sorted(data->stack_a))
 		free_data(data);
