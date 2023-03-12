@@ -12,6 +12,24 @@
 
 #include "push_swap.h"
 
+static int	multiple_int(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]))
+			count++;
+		if (ft_isspace(str[i]) && count > 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 static int	max(char *tmp)
 {
 	int	i;
@@ -65,10 +83,12 @@ static int	check_double(long nb, char **args)
 
 static int	first_check(char *s, int i)
 {
+	if (!s)
+		return (0);
 	if (s[i] == '\0' || (!ft_issign(s[i]) && !ft_isdigit(s[i])
 			&& !ft_isspace(s[i])))
 		return (0);
-	else if (max(s))
+	else if (max(s) || !multiple_int(s))
 		return (0);
 	else if ((!ft_isdigit(s[i]) && s[i + 1] == '\0') || !multisign(s))
 		return (0);

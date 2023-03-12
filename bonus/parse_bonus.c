@@ -12,6 +12,24 @@
 
 #include "push_swap_bonus.h"
 
+static int	multiple_int(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]))
+			count++;
+		if (ft_isspace(str[i]) && count > 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 static int	max(char *tmp)
 {
 	int	i;
@@ -82,6 +100,8 @@ int	check_args(char **args)
 	char	*s;
 
 	i = 0;
+	if (!args)
+		return (0);
 	while (*args)
 	{
 		s = *args;
